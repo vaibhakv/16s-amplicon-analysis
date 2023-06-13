@@ -1,1 +1,3 @@
-This directory contains the code for this project
+Downloaded v1.48.0 of mothur from:
+
+https://github.com/mothur/mothur/releases/download/v1.48.0/
