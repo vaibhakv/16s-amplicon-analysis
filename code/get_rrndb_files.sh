@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # author: vaibhakv
-# inputs: none
-# outputs rrndb files
+# inputs: stdin file names
+# outputs: rrndb files
 
 archive=$1
 
