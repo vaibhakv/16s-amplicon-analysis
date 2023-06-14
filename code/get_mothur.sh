@@ -8,3 +8,4 @@
 
 wget -nc -P code/ https://github.com/mothur/mothur/releases/download/v1.48.0/Mothur.Ubuntu_20.zip
 unzip -n -d code/ code/Mothur.Ubuntu_20.zip
+
