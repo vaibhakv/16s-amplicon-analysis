@@ -12,5 +12,10 @@ path=`echo $target | sed -E "s/(.*\/).*/\1/"`
 
 wget -nc -P "$path" https://rrndb.umms.med.umich.edu/static/download/"$filename".zip
 unzip -n -d "$path" "$target".zip
-touch "$target" 
+
+if [[ $? -eq 0 ]]
+then
+	touch "$target" 
+fi
+
 
