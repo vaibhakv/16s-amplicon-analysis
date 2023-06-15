@@ -16,6 +16,8 @@ unzip -n -d "$path" "$target".zip
 if [[ $? -eq 0 ]]
 then
 	touch "$target" 
+else 
+	echo "FAIL: were not able to successfully extract $filename"
 fi
 
 
