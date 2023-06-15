@@ -19,5 +19,3 @@ then
 else 
 	echo "FAIL: were not able to successfully extract $filename"
 fi
-
-
