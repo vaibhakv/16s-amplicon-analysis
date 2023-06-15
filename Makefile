@@ -24,3 +24,6 @@ data/raw/rrnDB-5.8_pantaxa_stats_NCBI.tsv : code/get_rrndb_files.sh
 data/raw/rrnDB-5.8_pantaxa_stats_RDP.tsv : code/get_rrndb_files.sh
 	$< $@
 
+data/%/rrnDB.align data/%/rrnDB-5.8_16S_rRNA.bad.accnos : code/extract_region.sh\
+						data/raw/rrnDB-5.8_16S_rRNA.align
+	$< $@
