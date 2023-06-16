@@ -22,13 +22,14 @@ data/raw/rrnDB-5.8_pantaxa_stats_NCBI.tsv : code/get_rrndb_files.sh
 data/raw/rrnDB-5.8_pantaxa_stats_RDP.tsv : code/get_rrndb_files.sh
 	$< $@
 
+#align sequences
 data/raw/rrnDB-5.8_16S_rRNA.align : code/align_sequences.sh\
 							data/references/silva_seed/silva.seed_v138_1.align\
 							data/raw/rrnDB-5.8_16S_rRNA.fasta\
 							code/mothur/mothur
 	$<
 
+#extract regions
 data/%/rrnDB.align data/%/rrnDB-5.8_16S_rRNA.bad.accnos : code/extract_region.sh\
-						data/raw/rrnDB-5.8_16S_rRNA.align\
-						code/mothur/mothur
+						code/mothur/mothur 
 	$< $@
