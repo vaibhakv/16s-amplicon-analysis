@@ -45,6 +45,8 @@ code/mothur/mothur "#pcr.seqs(fasta=data/raw/rrnDB-5.8_16S_rRNA.align, start=$st
 #to check if mothur executed successfully
 if [[ $? -eq 0 ]]
 then	
+	sed "/^[^>]/ s/\./-/g" $path/rrnDB-5.8_16S_rRNA.pcr.filter.fasta > $path/rrnDB-5.8_16S_rRNA.pcr.filter.test.fasta
+
 	touch $path/rrnDB-5.8_16S_rRNA.bad.accnos $path/rrnDB.bad.accnos
 	touch $path/rrnDB-5.8_16S_rRNA.scrap.pcr.align
 else
@@ -53,10 +55,12 @@ else
 fi
 
 #clean up the file names
-mv $path/rrnDB-5.8_16S_rRNA.pcr.filter.fasta $target
+mv $path/rrnDB-5.8_16S_rRNA.pcr.filter.test.fasta $target
 mv $path/rrnDB-5.8_16S_rRNA.bad.accnos $path/rrnDB.bad.accnos
 
 #garbage collection
 rm $path/rrnDB-5.filter
 rm $path/rrnDB-5.8_16S_rRNA.pcr.align   
 rm $path/rrnDB-5.8_16S_rRNA.scrap.pcr.align
+rm $path/rrnDB-5.8_16S_rRNA.pcr.filter.fasta
+
