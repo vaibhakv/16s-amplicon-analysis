@@ -31,5 +31,25 @@ data/raw/rrnDB-5.8_16S_rRNA.align : code/align_sequences.sh\
 
 #extract regions
 data/%/rrnDB.align data/%/rrnDB-5.8_16S_rRNA.bad.accnos : code/extract_region.sh\
-						code/mothur/mothur 
+
+	$< $@
+
+data/v19/rrnDB.unique.align data/v19/rrnDB.count_table : code/count_unique_seqs.sh\
+											data/v19/rrnDB.align\
+											code/mothur/mothur
+	$< $@
+
+data/v4/rrnDB.unique.align data/v4/rrnDB.count_table : code/count_unique_seqs.sh\
+											data/4/rrnDB.align\
+											code/mothur/mothur
+	$< $@
+
+data/v34/rrnDB.unique.align data/v34/rrnDB.count_table : code/count_unique_seqs.sh\
+											data/v34/rrnDB.align\
+											code/mothur/mothur
+	$< $@
+
+data/v45/rrnDB.unique.align data/v45/rrnDB.count_table : code/count_unique_seqs.sh\
+											data/v45/rrnDB.align\
+											code/mothur/mothur
 	$< $@
