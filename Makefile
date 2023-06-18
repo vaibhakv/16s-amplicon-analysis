@@ -53,3 +53,11 @@ data/v45/rrnDB.unique.align data/v45/rrnDB.count_table : code/count_unique_seqs.
 											data/v45/rrnDB.align\
 											code/mothur/mothur
 	$< $@
+
+data/v45/rrnDB.count_table2: code/remove_headers.sh\
+					data/v45/rrnDB.count_table
+	$< data/v45/rrnDB.count_table
+
+
+data/%/rrnDB.count_tibble: code/convert_count_table_to_tibble.R\
+				data/%/rrnDB.count_table2
