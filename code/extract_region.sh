@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # author: vaibhakv
-# dependency: data/raw/rrnDB-5.8_16S_rRNA.align
+# dependency: data/raw/rrnDB-5.6_16S_rRNA.align
 # input: the target name, which is really the output
 #           data/<region>/rrnDB.align
 
@@ -40,27 +40,27 @@ fi
 
 mkdir -p $path 
 
-code/mothur/mothur "#pcr.seqs(fasta=data/raw/rrnDB-5.8_16S_rRNA.align, start=$start, end=$end, outputdir=$path); filter.seqs(vertical=TRUE)"
+code/mothur/mothur "#pcr.seqs(fasta=data/raw/rrnDB-5.6_16S_rRNA.align, start=$start, end=$end, outputdir=$path); filter.seqs(vertical=TRUE)"
 
 #to check if mothur executed successfully
 if [[ $? -eq 0 ]]
 then	
-	sed "/^[^>]/ s/\./-/g" $path/rrnDB-5.8_16S_rRNA.pcr.filter.fasta > $path/rrnDB-5.8_16S_rRNA.pcr.filter.test.fasta
+	sed "/^[^>]/ s/\./-/g" $path/rrnDB-5.6_16S_rRNA.pcr.filter.fasta > $path/rrnDB-5.6_16S_rRNA.pcr.filter.test.fasta
 
-	touch $path/rrnDB-5.8_16S_rRNA.bad.accnos $path/rrnDB.bad.accnos
-	touch $path/rrnDB-5.8_16S_rRNA.scrap.pcr.align
+	touch $path/rrnDB-5.6_16S_rRNA.bad.accnos $path/rrnDB.bad.accnos
+	touch $path/rrnDB-5.6_16S_rRNA.scrap.pcr.align
 else
 	echo "FAIL: mothur ran into a problem"
 	exit 1
 fi
 
 #clean up the file names
-mv $path/rrnDB-5.8_16S_rRNA.pcr.filter.test.fasta $target
-mv $path/rrnDB-5.8_16S_rRNA.bad.accnos $path/rrnDB.bad.accnos
+mv $path/rrnDB-5.6_16S_rRNA.pcr.filter.test.fasta $target
+mv $path/rrnDB-5.6_16S_rRNA.bad.accnos $path/rrnDB.bad.accnos
 
 #garbage collection
 rm $path/rrnDB-5.filter
-rm $path/rrnDB-5.8_16S_rRNA.pcr.align   
-rm $path/rrnDB-5.8_16S_rRNA.scrap.pcr.align
-rm $path/rrnDB-5.8_16S_rRNA.pcr.filter.fasta
+rm $path/rrnDB-5.6_16S_rRNA.pcr.align   
+rm $path/rrnDB-5.6_16S_rRNA.scrap.pcr.align
+rm $path/rrnDB-5.6_16S_rRNA.pcr.filter.fasta
 
