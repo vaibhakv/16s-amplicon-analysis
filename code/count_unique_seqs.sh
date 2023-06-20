@@ -13,7 +13,7 @@ sed -E "s/>.*\|(.*)\|(.*)\|.*\|(.*)_.$/>\1|\2|\3/" $ALIGN > $TEMP_ALIGN
 
 grep ">" $TEMP_ALIGN | sed -E "s/>((.*)\|.*\|.*)/\1 \2/" > $TEMP_GROUPS
 
-code/mothur/mothur "#unique.seqs(fasta=$TEMP_ALIGN, format=name);
+code/mothur/mothur "#unique.seqs(fasta=$TEMP_ALIGN);
 	count.seqs(group=$TEMP_GROUPS, compress=FALSE)"
 
 mv $STUB_TEMP.unique.align $STUB.unique.align
