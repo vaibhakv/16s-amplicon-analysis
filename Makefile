@@ -64,3 +64,6 @@ data/%/rrnDB.count_tibble: code/convert_count_table_to_tibble.R\
 
 README.md : README.rmd
 	R -e "library(rmarkdown): render("README.rmd")"
+
+exploratory/genome_sens_spec.md : exploratory/genome_sens_spec.Rmd
+	R -e "library(rmarkdown): render("exploratory/genome_sens_spec.Rmd")"
