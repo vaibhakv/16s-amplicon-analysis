@@ -61,3 +61,6 @@ data/v45/rrnDB.count_table2: code/remove_headers.sh\
 
 data/%/rrnDB.count_tibble: code/convert_count_table_to_tibble.R\
 				data/%/rrnDB.count_table
+
+README.md : README.rmd
+	R -e "library(rmarkdown): render("README.rmd")"
