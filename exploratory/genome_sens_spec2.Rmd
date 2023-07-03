@@ -2,9 +2,9 @@
 title: "Analyzing the sensitivity and specificity of ASVs for discriminating between genomes"
 author: "Vaibhav Gawde"
 date: "2023-06-21"
-output: 
+output:
   github_document:
-  html_preview: true
+  html_preview: false
 ---
 
 ```{r, message=FALSE}
